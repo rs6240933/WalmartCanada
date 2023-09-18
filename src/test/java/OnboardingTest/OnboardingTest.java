@@ -23,7 +23,7 @@ import BasePackage.Listeners;
 import PageObjects.OnboardObject;
 
 public class OnboardingTest extends Baseclass {
-//This is rishabh singh cedcoss
+//This is the test case for Onboarding step 1
 	public WebDriver driver;
 	public OnboardObject obj;
 	@Test(priority = 1)
