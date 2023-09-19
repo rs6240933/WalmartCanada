@@ -16,8 +16,8 @@
           <include name="ContactUsLinkClick"/>
           <include name="IfConsumeridIsgiven"/>
           <include name="VerifyCrossButton"/>
-          <include name="IfPrivateKeyIsgiven"/>
           <include name="validCredentials"/>
+          <include name="IfPrivateKeyIsgiven"/>
           <include name="VerificationOfSteponeUrl"/>
           <include name="InvalidCredentials"/>
           <include name="checkCheckBox"/>
