@@ -30,7 +30,6 @@ public class OnboardingTest extends Baseclass {
 	public void VerificationOfSteponeUrl() throws IOException, InterruptedException {
 		this.obj = LaunchApplication();
 		this.driver = driverr;
-		Listeners.test.log(Status.INFO, "Openneeddd");
 		String url = driver.getCurrentUrl();
 		String Expected_url = "https://apps.cedcommerce.com/marketplace-integration/walmartcanada/onboard/index";
 		Assert.assertTrue(url.contains(Expected_url), "Wrong page is opened");
@@ -158,17 +157,11 @@ public class OnboardingTest extends Baseclass {
 	@Test(priority = 14)
 
 	public void readMoreClickable() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='Polaris-Button__Text'])[1]")));
-
+		obj.WaitforElementClickable(By.xpath("(//span[@class='Polaris-Button__Text'])[1]"));
 	}
 	@Test(priority = 15)
 	public void SellerCenterClickable() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='https://seller.walmart.ca/']")));
-
+		obj.WaitforElementClickable(By.xpath("//a[@href='https://seller.walmart.ca/']"));
 	}
 	
 	@Test(priority = 16)

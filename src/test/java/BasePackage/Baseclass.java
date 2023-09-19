@@ -17,9 +17,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import PageObjects.OnboardObject;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Baseclass{
 	
@@ -39,9 +41,10 @@ public class Baseclass{
 		String storeName = prop.getProperty("storeName");
 		
 		if (broswername.equalsIgnoreCase("chrome")) {
+			WebDriverManager.chromedriver().setup();
 			this.driverr = new ChromeDriver();
 			this.wait = new WebDriverWait(driverr, Duration.ofSeconds(20));
-			System.setProperty("webdriver.chrome.driver", "src//main//resources//chromedriver.exe");
+//			System.setProperty("webdriver.chrome.driver", "src//main//resources//chromedriver.exe");
 			driverr.manage().window().maximize();
 			if (runOn.equalsIgnoreCase("true")) {
 				runonNewStore(store, pass, storeName);
@@ -51,9 +54,9 @@ public class Baseclass{
 
 		}
 		if (broswername.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
 			this.driverr = new FirefoxDriver();
 			this.wait = new WebDriverWait(driverr, Duration.ofSeconds(20));
-			System.setProperty("webdriver.gecko.driver", "src//main//resources//geckodriver.exe");
 			driverr.manage().window().maximize();
 			if (runOn.equalsIgnoreCase("true")) {
 				runonNewStore(store, pass, storeName);
@@ -133,13 +136,13 @@ public class Baseclass{
 				ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='dQQabkSmBTfgBjKaboio']")));
 		Thread.sleep(2000);
 		driverr.findElement(By.cssSelector("button[class='dQQabkSmBTfgBjKaboio']")).click();
-		Thread.sleep(8000);
+		Thread.sleep(5000);
 		ArrayList<String> n1 = new ArrayList<String>(driverr.getWindowHandles());
 		System.out.print(n1.size());
 
 		driverr.switchTo().window(n1.get(1));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[@class='jb2yQ'])[2]")));
-		
+		Thread.sleep(4000);
 		driverr.findElement(By.xpath("(//button[@class='jb2yQ'])[2]")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='FSndY'])[1]/div")));
 		driverr.findElement(By.xpath("(//div[@class='FSndY'])[1]/div")).click();
@@ -150,12 +153,14 @@ public class Baseclass{
 		String current_url = driverr.getCurrentUrl();
 		String[] array = current_url.split("walmartcanada");
 		String newUrl = array[0]+"walmartcanada/onboard/index?sHopiFy=1";
+		Listeners.test.log(Status.INFO, "Browser Opened "+newUrl);
 		driverr.navigate().to(newUrl);
 	}
 	
 	public OnboardObject LaunchApplication() throws  IOException, InterruptedException {
 		InitializeBrowser();
 		OnboardObject obj1 = new OnboardObject(driverr);
+		
 		return obj1;
 		
 	}
