@@ -1,6 +1,4 @@
-package BasePackage;
-
-import java.io.IOException;
+package utils;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;

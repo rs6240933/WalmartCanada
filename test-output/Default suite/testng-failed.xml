@@ -5,26 +5,7 @@
     <classes>
       <class name="OnboardingTest.OnboardingTest">
         <methods>
-          <include name="readMoreClickable"/>
-          <include name="VerifySubmitButton"/>
-          <include name="ClickOnStoreLink"/>
-          <include name="Verifywhatsapplink"/>
-          <include name="VerifyqueryDropDown"/>
-          <include name="ContactUsLinkClick"/>
-          <include name="VerifyCrossButton"/>
-          <include name="IfConsumeridIsgiven"/>
-          <include name="IfPrivateKeyIsgiven"/>
-          <include name="validCredentials"/>
-          <include name="VerificationOfSteponeUrl"/>
-          <include name="InvalidCredentials"/>
           <include name="VerifyClickHereLink"/>
-          <include name="checkCheckBox"/>
-          <include name="VerifyCloseButton"/>
-          <include name="uncheckCheckBox"/>
-          <include name="VerifyTicketlink"/>
-          <include name="SellerCenterClickable"/>
-          <include name="Verifyskypelink"/>
-          <include name="VerifyCalenderlink"/>
         </methods>
       </class> <!-- OnboardingTest.OnboardingTest -->
     </classes>

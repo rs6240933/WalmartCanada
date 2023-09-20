@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.Status;
 
-import BasePackage.Listeners;
 import utils.AllMethods;
 
 
@@ -142,10 +141,12 @@ public class OnboardObject extends AllMethods {
 
 	}
 
-	public void fillBothcred(String x, String y) { //This method will fill both valid credientials then click on Next button
+	public OnboardStep2 fillBothcred(String x, String y) { //This method will fill both valid credientials then click on Next button
 		FillCustomerId(x);
 		FillSecretKey(y);
 		ClickOnTermandConditions();
 		driver.findElement(By.xpath("//div[@class='Polaris-Page-Header__Pagination']/nav/button")).click();
+		OnboardStep2 obj2 = new OnboardStep2(driver);
+		return obj2;
 	}
 }

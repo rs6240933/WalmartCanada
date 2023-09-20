@@ -28,7 +28,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -37,5 +36,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Rishabh/.p2/pool/plugins/org.testng_7.8.0.r202306071539.jar" sourcepath="C:/Users/Rishabh/.p2/pool/plugins/org.testng.source_7.8.0.r202306071539.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

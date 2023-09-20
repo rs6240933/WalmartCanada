@@ -9,23 +9,19 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-
-import BasePackage.Baseclass;
-import BasePackage.Listeners;
 import PageObjects.OnboardObject;
+import PageObjects.OnboardStep2;
 
-public class OnboardingTest extends Baseclass {
+public class OnboardingTest extends utils.Baseclass {
 //This is the test case for Onboarding step 1
 	public WebDriver driver;
 	public OnboardObject obj;
+	public OnboardStep2 obj1;
 	@Test(priority = 1)
 	public void VerificationOfSteponeUrl() throws IOException, InterruptedException {
 		this.obj = LaunchApplication();
@@ -208,10 +204,18 @@ public class OnboardingTest extends Baseclass {
 	@Test(priority = 20)
 	public void validCredentials() throws InterruptedException {
 		obj.RefreshandWait();
-		obj.fillBothcred("CedCommerce007", "CedCommerce008");
+		this.obj1 = obj.fillBothcred("CedCommerce007", "CedCommerce008");
 		obj.WaitTillTextPresent(By.xpath("//div[@class='nav-steps-wrap d-flex']/h2"),"Product Import");
 		String expText = driver.findElement(By.xpath("//div[@class='nav-steps-wrap d-flex']/h2")).getText();
 		Assert.assertTrue(expText.contains("Product Import"), "Wrong page is opened");
+		
+	}
+	
+	@Test(priority = 21)
+	
+	public void ImportOptionVisible() {
+		ArrayList<WebElement> op = obj1.openDropdown();
+		Assert.assertTrue(op.get(1).getText().contains("All Products Import"), "Wrong getting");
 	}
 
 }
